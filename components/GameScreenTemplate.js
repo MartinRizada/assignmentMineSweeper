@@ -1,4 +1,4 @@
-// GameScreenTemplate.js
+﻿// GameScreenTemplate.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -147,7 +147,7 @@ const GameScreenTemplate = ({ gridSize, mines, navigation }) => {
             message,
             [
                 { text: 'Save Score', onPress: () => setIsInitialsModalVisible(true) },
-                { text: 'Don�t Save', onPress: () => navigation.goBack(), style: 'cancel' },
+                { text: 'Don’t Save', onPress: () => navigation.goBack(), style: 'cancel' },
             ],
             { cancelable: false }
         );
@@ -177,12 +177,12 @@ const GameScreenTemplate = ({ gridSize, mines, navigation }) => {
                                 disabled={square.isOpen || gameOver}
                             >
                                 {/* Render a mine icon if the square is a mine and is open (revealed) */}
-                                {square.isMine && square.isOpen ? <Text style={styles.mineText}>??</Text> : null}
+                                {square.isMine && square.isOpen ? <Text style={styles.mineText}>💣</Text> : null}
 
                                 {/* Render a check mark or the number of adjacent mines if the square is open and not a mine */}
                                 {square.isOpen && !square.isMine ? (
                                     <Text style={styles.safeText}>
-                                        {square.adjacentMines > 0 ? square.adjacentMines : '?'}
+                                        {square.adjacentMines > 0 ? square.adjacentMines : '✅'}
                                     </Text>
                                 ) : null}
                             </TouchableOpacity>
