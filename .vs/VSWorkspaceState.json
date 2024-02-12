@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\components"
+    "\\components",
+    "\\screens"
   ],
-  "SelectedNode": "\\components",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }

@@ -19,7 +19,7 @@ const GameScreenTemplate = ({ gridSize, mines, navigation }) => {
     const resetGame = () => {
         setGrid(initializeGrid(gridSize, mines)); // Re-initialize the grid
         setScore(0);                              // Reset the score
-        setTimer(40);                             // Reset the timer
+        setTimer(30);                             // Reset the timer
         setGameOver(false);                       // Reset the game over state
         // You may also want to reset any other relevant state variables
     };
@@ -131,7 +131,7 @@ const GameScreenTemplate = ({ gridSize, mines, navigation }) => {
                                 `You hit an empty square! \nPoints earned: ${pointsEarned}. Total score: ${newScore}`,
                                 [
                                     { text: 'Game On', style: 'cancel' },
-                                    { text: 'Give Up', onPress: () => endGame('Chicken out!', newScore, false) },
+                                    { text: 'Give Up', onPress: () => endGame(`You Chicken out!\nTotal Score: ${newScore}`, false) },
                                 ],
                                 { cancelable: false }
                             );
@@ -153,7 +153,7 @@ const GameScreenTemplate = ({ gridSize, mines, navigation }) => {
             message,
             [
                 { text: 'Save Score', onPress: () => setIsInitialsModalVisible(true) },
-                { text: 'Don’t Save', onPress: () => navigation.goBack(), style: 'cancel' },
+                { text: 'Don’t Save', style: 'cancel' },
             ],
             { cancelable: false }
         );
