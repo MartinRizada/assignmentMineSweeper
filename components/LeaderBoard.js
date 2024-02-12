@@ -1,4 +1,9 @@
-// LeaderboardScreen.js
+/**
+ * \file    LeaderBoard.js
+ * \author  Martin Rizada
+ * \brief   screen to see who got the highest score.
+ */
+
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';

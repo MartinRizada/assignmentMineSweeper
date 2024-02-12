@@ -1,3 +1,9 @@
+/**
+ * \file    Initials.js
+ * \author  Martin Rizada
+ * \brief   modal for the input of initials if the user decides to save the score.
+ */
+
 import React, { useState } from 'react';
 import { Modal, View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 
@@ -36,8 +42,8 @@ const InitialsModal = ({ isVisible, onClose, onSave }) => {
                     <TouchableOpacity style={styles.button} onPress={handleSave}>
                         <Text style={styles.buttonText}>Save Score</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={onClose}>
-                        <Text style={styles.buttonText}>Exit</Text>
+                    <TouchableOpacity style={styles.backButton} onPress={onClose}>
+                        <Text style={styles.backButtonText}>Exit</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -85,11 +91,11 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     button: {
-        backgroundColor: '#569daa', // A nice blue
-        borderRadius: 5, // Rounded corners
-        paddingVertical: 12, // Taller buttons
-        paddingHorizontal: 20, // Wider buttons
-        minWidth: 200, // Minimum width for all buttons to align
+        backgroundColor: '#569daa',
+        borderRadius: 5, 
+        paddingVertical: 12, 
+        paddingHorizontal: 20, 
+        minWidth: 200, 
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
@@ -102,6 +108,27 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
     },
+    backButton: {
+        borderRadius: 5,
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        minWidth: 200,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        marginBottom: 5,
+        borderColor: '#569daa',
+        borderWidth: 1,
+    },
+
+    backButtonText: {
+        color: '#569daa',
+        fontWeight: 'bold',
+        textAlign: 'center',
+
+    },
+
 });
 
 export default InitialsModal;

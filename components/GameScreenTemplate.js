@@ -1,11 +1,17 @@
-﻿// GameScreenTemplate.js
+﻿/**
+ * \file    Initials.js
+ * \author  Martin Rizada
+ * \brief   where all the game logic happens starting from calling what difficulty, shows timer, reset game, check the squares if a bomb or empty and the gamescreen messages.
+ */
+
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import InitialsModal from './Initials';
+
 const GameScreenTemplate = ({ gridSize, mines, navigation }) => {
     const [grid, setGrid] = useState(initializeGrid(gridSize, mines));
-    const [timer, setTimer] = useState(40);
+    const [timer, setTimer] = useState(30);
     const [score, setScore] = useState(0);
     const [gameOver, setGameOver] = useState(false);
     const [isInitialsModalVisible, setIsInitialsModalVisible] = useState(false);
@@ -46,7 +52,7 @@ const GameScreenTemplate = ({ gridSize, mines, navigation }) => {
         const intervalId = setInterval(() => {
             setTimer(prevTimer => {
                 if (prevTimer === 1) {
-                    endGame('Time is up!', `Your score: ${score}`);
+                    endGame(`Time is up! \n Your score: ${score}`,false);
                     return 0;
                 } else {
                     return prevTimer - 1;
@@ -182,7 +188,7 @@ const GameScreenTemplate = ({ gridSize, mines, navigation }) => {
                                 {/* Render a check mark or the number of adjacent mines if the square is open and not a mine */}
                                 {square.isOpen && !square.isMine ? (
                                     <Text style={styles.safeText}>
-                                        {square.adjacentMines > 0 ? square.adjacentMines : '✅'}
+                                        {square.adjacentMines > 0 ? square.adjacentMines : ''}
                                     </Text>
                                 ) : null}
                             </TouchableOpacity>
@@ -220,12 +226,12 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         margin: 10,
         padding: 10,
-        backgroundColor: '#fff', // Consider a light background for contrast with shadow
-        borderRadius: 10,    // Slightly rounded corners
-        shadowColor: '#000', // Black color for shadow
-        shadowOffset: { width: 0, height: 10 }, // Shadow offset
-        shadowOpacity: 0.25, // Shadow opacity
-        shadowRadius: 10,    // Shadow blur radius
+        backgroundColor: '#fff', 
+        borderRadius: 10,    
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 10 }, 
+        shadowOpacity: 0.25, 
+        shadowRadius: 10,    
         elevation: 10,
     },
     row: {
@@ -237,12 +243,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         margin: 4,
-        backgroundColor: '#e0e0e0', // A light grey color
-        borderRadius: 5,             // Slightly rounded corners for each square
-        shadowColor: '#000',         // Black color for shadow
-        shadowOffset: { width: 0, height: 5 }, // Shadow offset
-        shadowOpacity: 0.2,          // Shadow opacity
-        shadowRadius: 5,             // Shadow blur radius
+        backgroundColor: '#e0e0e0', 
+        borderRadius: 5,            
+        shadowColor: '#000',        
+        shadowOffset: { width: 0, height: 5 },
+        shadowOpacity: 0.2,         
+        shadowRadius: 5,             
         elevation: 5,
     },
     openSquare: {
@@ -252,11 +258,11 @@ const styles = StyleSheet.create({
         fontSize: 24,
     },
     button: {
-        backgroundColor: '#569daa', // A nice blue
-        borderRadius: 5, // Rounded corners
-        paddingVertical: 12, // Taller buttons
-        paddingHorizontal: 20, // Wider buttons
-        minWidth: 200, // Minimum width for all buttons to align
+        backgroundColor: '#569daa', 
+        borderRadius: 5, 
+        paddingVertical: 12,
+        paddingHorizontal: 20, 
+        minWidth: 200, 
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,

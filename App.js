@@ -1,13 +1,19 @@
+/**
+ * \file    Initials.js
+ * \author  Martin Rizada
+ * \brief   Home screen of the App.
+ */
+
 import { useState } from 'react';
 import { View, Text, Pressable, Button, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createStackNavigator } from '@react-navigation/stack';
-// Import the game screens
-import EasyGameScreen from './components/EasyGameScreen';
-import MediumGameScreen from './components/MediumGameScreen';
-import HardGameScreen from './components/HardGameScreen';
-import InstructionsModal from './components/Instructions'; // Ensure this path is correct
+
+
+import EasyGameScreen from './screens/EasyGameScreen';
+import MediumGameScreen from './screens/MediumGameScreen';
+import HardGameScreen from './screens/HardGameScreen';
+import InstructionsModal from './components/Instructions'; 
 import GameScreenTemplate from './components/GameScreenTemplate';
 import LeaderboardScreen from './components/LeaderBoard';
 
@@ -55,13 +61,13 @@ const App = () => {
                 initialRouteName="Home"
                 screenOptions={{
                     headerStyle: {
-                        backgroundColor: '#577d86', // example header background color
+                        backgroundColor: '#577d86', 
                     },
-                    headerTintColor: '#fff', // example header tint (back button and title)
+                    headerTintColor: '#fff', 
                     headerTitleStyle: {
                         fontWeight: 'bold',
-                        textAlign: 'center', // Center title for Android
-                        flexGrow: 1, // Stretch header title
+                        textAlign: 'center', 
+                        flexGrow: 1, 
                     },
                 }}
             >
@@ -95,28 +101,28 @@ const App = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'space-around', // Changed from 'center' to 'space-around' for vertical spacing
+        justifyContent: 'space-around',
         alignItems: 'center',
         padding: 50,
         backgroundColor: '#F5FCFF',
 
     },
     mainTitle: {
-        fontSize: 32, // Slightly larger
+        fontSize: 32, 
         fontWeight: 'bold',
-        color: '#569daa', // Dark color for contrast
+        color: '#569daa', 
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#569daa', // Dark color for contrast
+        color: '#569daa', 
     },
     button: {
-        backgroundColor: '#569daa', // A nice blue
-        borderRadius: 5, // Rounded corners
-        paddingVertical: 12, // Taller buttons
-        paddingHorizontal: 20, // Wider buttons
-        minWidth: 200, // Minimum width for all buttons to align
+        backgroundColor: '#569daa', 
+        borderRadius: 5, 
+        paddingVertical: 12, 
+        paddingHorizontal: 20, 
+        minWidth: 200,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
@@ -124,7 +130,7 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     buttonText: {
-        color: 'white', // White text on blue buttons
+        color: 'white',
         fontSize: 18,
         textAlign: 'center',
     },
